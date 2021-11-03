@@ -1,0 +1,57 @@
+﻿using AuthApiExample.Models;
+using AuthApiExample.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace AuthApiExample.Models
+{
+    public class User
+    {
+        public string NoEmpleado { get; set; }
+        public string Nombre { get; set; }
+        public string ApellidoPaterno { get; set; }
+        public string ApellidoMaterno { get; set; }
+        public byte[] Foto { get; set; }
+        public string Correo { get; set; }
+        public string Departamento { get; set; }
+        public string Planta { get; set; }
+        public string Perfil { get; set; }
+        public List<Permission> Permissions { get; set; }
+
+        public int Leer(string Username)
+        {
+            var sql = SqlManager.Instance;
+
+            try
+            {
+                string query = "SELECT * FROM [dbo].[User] WHERE Correo = @username";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@username", Username);
+
+                DataSet ds = sql.Select(query, parameters);
+                DataTable dt = ds.Tables[0];
+
+                if (dt.Rows.Count == 0)
+                    return 101;
+                this.NoEmpleado = dt.Rows[0]["NoEmpleado"].ToString();
+                this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                this.ApellidoPaterno = dt.Rows[0]["ApellidoPaterno"].ToString();
+                this.ApellidoMaterno = dt.Rows[0]["ApellidoMaterno"].ToString();
+                //this.Foto = (byte[])dt.Rows[0]["Foto"];
+                this.Correo = dt.Rows[0]["Correo"].ToString();
+                this.Departamento = dt.Rows[0]["Departamento"].ToString();
+                //this.Permissions = dt.Rows[0]["Permissions"].ToString();
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return 0;
+        }
+    }
+}
