@@ -44,7 +44,7 @@ namespace AuthApiExample.Services
             //procedimiento de authenticacion que regrese el objeto User
 
             User usr = new User();
-            if (usr.Leer(username) != 0)
+            if (usr.Leer(username, password) != 0)
                 auth = false;
 
             if (auth)

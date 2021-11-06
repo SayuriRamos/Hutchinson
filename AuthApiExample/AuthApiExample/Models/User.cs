@@ -21,17 +21,20 @@ namespace AuthApiExample.Models
         public string Planta { get; set; }
         public string Perfil { get; set; }
         public List<Permission> Permissions { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
 
-        public int Leer(string Username)
+        public int Leer(string Username, string Password)
         {
             var sql = SqlManager.Instance;
 
             try
             {
-                string query = "SELECT * FROM [dbo].[User] WHERE Correo = @username";
+                string query = "SELECT * FROM [dbo].[User] WHERE Usuario = @username and Contrasena = @password";
 
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@username", Username);
+                parameters.Add("@password", Password);
 
                 DataSet ds = sql.Select(query, parameters);
                 DataTable dt = ds.Tables[0];
@@ -45,6 +48,8 @@ namespace AuthApiExample.Models
                 //this.Foto = (byte[])dt.Rows[0]["Foto"];
                 this.Correo = dt.Rows[0]["Correo"].ToString();
                 this.Departamento = dt.Rows[0]["Departamento"].ToString();
+                this.Usuario = dt.Rows[0]["Departamento"].ToString();
+                this.Contrasena = dt.Rows[0]["Departamento"].ToString();
                 //this.Permissions = dt.Rows[0]["Permissions"].ToString();
             }
             catch (SqlException e)

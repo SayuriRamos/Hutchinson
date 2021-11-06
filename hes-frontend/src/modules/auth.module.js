@@ -72,8 +72,8 @@ export const auth = {
         },
         async logout({ commit }) {
 
-           
             try {
+       
 
                 await axios.post(config.API_URL_ROOT_AUTH + '/auth/session/end')
                 
