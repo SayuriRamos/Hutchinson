@@ -33,33 +33,33 @@ const routes = [
     path: "/qrqc_system",
     name: "qrqc_system",
     component: qrqc_system,
-    meta:{auth:true}
-    },
+    meta: { auth: true }
+  },
   {
     path: "/policy_dev",
     name: "policy_dev",
     component: policy_dev,
-    meta:{auth:true}
+    meta: { auth: true }
   },
   {
     path: "/sistema_6s",
     name: "sistema_6s",
     component: sistema_6s,
-    meta:{auth:true}
+    meta: { auth: true }
   },
   {
     path: "/proyectos_mejora",
     name: "proyectos_mejora",
     component: proyectos_mejora,
-    meta:{auth:true}
+    meta: { auth: true }
   },
   {
     path: "/hes_training",
     name: "hes_training",
     component: hes_training,
-    meta:{auth:true}
+    meta: { auth: true }
   }
-  
+
 ];
 
 const router = new VueRouter({
@@ -69,46 +69,46 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  
+
   let authenticated = store.getters['auth/isAuthenticated']
   let firstload = store.getters['isFirstLoad']
-  
-  if (!authenticated && firstload)  {
-      try { await store.dispatch('auth/me') } catch(err) { store.commit('auth/auth_logout')} finally { store.commit('setFirstLoad', false)}
+
+  if (!authenticated && firstload) {
+    try { await store.dispatch('auth/me') } catch (err) { store.commit('auth/auth_logout') } finally { store.commit('setFirstLoad', false) }
   }
 
   if (to.meta.auth) {
 
     if (!store.state.auth.token) {
-      
-      store.commit('snackbar_show', {text: 'Acceso no authorizado. Favor de acceder con sus credenciales'});
-      next({name: 'Home'});
+
+      store.commit('snackbar_show', { text: 'Acceso no authorizado. Favor de acceder con sus credenciales' });
+      next({ name: 'Home' });
 
     } else {
-      
+
       let found = true
-      
-      if(to.meta.permissions)
+
+      if (to.meta.permissions)
         for (let index = 0; index < to.meta.permissions.length; index++) {
-            const element = to.meta.permissions[index];
-            
-            if (store.state.auth.profile.permissions.filter((item) => item.description === element).length > 0) {
-                found = true
+          const element = to.meta.permissions[index];
 
-                break
-            }
+          if (store.state.auth.profile.permissions.filter((item) => item.description === element).length > 0) {
+            found = true
 
-            found = false
+            break
+          }
+
+          found = false
         }
 
-      if(!found) {
+      if (!found) {
 
-          store.commit('snackbar_show', {text: 'Unathorized access'})
-          next({name: 'Login'}) 
+        store.commit('snackbar_show', { text: 'Unathorized access' })
+        next({ name: 'Login' })
       }
       else {
-      
-          next()
+
+        next()
       }
 
     }
