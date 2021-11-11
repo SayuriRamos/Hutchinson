@@ -17,7 +17,7 @@ namespace AuthApiExample.Utils
             Username = "sa";
             Password = "165998";
             Address = "LAPTOP-VU78PHMP\\SQLEXPRESS";
-            Database = "Hutchinsong";
+            Database = "Hutchinson";
 
         }
     }
