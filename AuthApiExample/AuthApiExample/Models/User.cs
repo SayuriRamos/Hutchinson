@@ -30,7 +30,7 @@ namespace AuthApiExample.Models
 
             try
             {
-                string query = "SELECT * FROM [dbo].[User] WHERE Usuario = @username and Contrasena = @password";
+                string query = "select u.NoEmpleado, u.Nombre, u.ApellidoPaterno, u.ApellidoMaterno, u.Foto, u.Correo, u.Departamento, u.Planta, u.Usuario, u.Contrasena, p.nombrePerfil as Perfil from [dbo].[User] u inner join Perfil p on p.perfil_id = u.Perfil WHERE u.Usuario = @username and u.Contrasena = @password";
 
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@username", Username);
@@ -47,6 +47,7 @@ namespace AuthApiExample.Models
                 this.ApellidoMaterno = dt.Rows[0]["ApellidoMaterno"].ToString();
                 //this.Foto = (byte[])dt.Rows[0]["Foto"];
                 this.Correo = dt.Rows[0]["Correo"].ToString();
+                this.Perfil = dt.Rows[0]["Perfil"].ToString();
                 this.Departamento = dt.Rows[0]["Departamento"].ToString();
                 this.Usuario = dt.Rows[0]["Departamento"].ToString();
                 this.Contrasena = dt.Rows[0]["Departamento"].ToString();

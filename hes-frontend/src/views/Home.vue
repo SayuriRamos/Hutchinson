@@ -71,7 +71,7 @@ export default {
     navigate(to) {
       this.$router.push({name: to})
     }
-  }
-
+    
+  },
 };
 </script>
