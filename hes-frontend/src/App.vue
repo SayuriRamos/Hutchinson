@@ -8,7 +8,8 @@
         v-model="drawer"
         app
         absolute
-        clipped-left
+        fixed
+        temporary
         :style="{ top: $vuetify.application.top + 'px', zIndex: 6 }"
         light        
       >
