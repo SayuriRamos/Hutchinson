@@ -1,0 +1,20 @@
+.kaizenHeader{
+    text-align: center;
+    font-size: 36px;
+    color: #04598A;
+}
+.kaizenScndHeader{
+    font-size: 16px;
+    color: #04598A;
+}
+.kaizen{
+    flex-grow:1;
+    text-align: center;
+    color: #04598A;
+}
+/*.container{
+    display: flex;
+}*/
+.calendario{
+    width: 400px;
+}

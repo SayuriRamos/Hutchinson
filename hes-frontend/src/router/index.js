@@ -5,7 +5,7 @@ import IdeasMejora from "../views/IdeasMejora.vue";
 import qrqc_system from "../views/qrqc_system.vue"
 import policy_dev from "../views/policy_dev.vue"
 import sistema_6s from "../views/sistema_6s.vue"
-import proyectos_mejora from "../views/proyectos_mejora.vue"
+import mainModuloProyectos from "../views/mainModulo.vue"
 import hes_training from "../views/hes_training.vue"
 
 import axios from 'axios'
@@ -48,16 +48,46 @@ const routes = [
     meta: { auth: true }
   },
   {
-    path: "/proyectos_mejora",
-    name: "proyectos_mejora",
-    component: proyectos_mejora,
-    meta: { auth: true }
-  },
-  {
     path: "/hes_training",
     name: "hes_training",
     component: hes_training,
     meta: { auth: true }
+  },
+  {
+    path: '/mainProyectosMejora',
+    name: 'mainModuloProyectos',
+    component: mainModuloProyectos,
+    meta: { auth: true }
+  },
+  {
+    path: '/nuevoProyecto',
+    name: 'nuevoProyecto',
+    component: () => import('../views/nuevoProyecto')
+  },
+  {
+    path: '/instruccion',
+    name: 'instruccion',
+    component: () => import('../views/instruccion')
+  },
+  {
+    path: '/kaizen',
+    name: 'kaizen',
+    component: () => import('../views/kaizen')
+  },
+  {
+    path: '/estatusProyecto',
+    name: 'estatusProyecto',
+    component: () => import('../views/estatusProyecto')
+  },
+  {
+    path: '/masDetalles',
+    name: 'masDetalles',
+    component: () => import('../views/masDetalles')
+  },
+  {
+    path: '/indicadores',
+    name: 'indicadores',
+    component: () => import('../views/indicadores')
   }
 
 ];

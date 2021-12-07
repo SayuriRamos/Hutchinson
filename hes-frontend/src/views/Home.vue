@@ -61,7 +61,7 @@ export default {
         {title: 'I-QRQC SYSTEM', image: 'blank.png', to: 'qrqc_system'},
         {title: 'POLICY DEPLOYMENT (STRATEGY)', image: 'blank.png', to: 'policy_dev'},
         {title: 'SISTEMA 6S', image: '6sss.png', to: 'sistema_6s'},
-        {title: 'PROYECTOS DE MEJORA', image: 'proyectos-mejora.png', to: 'proyectos_mejora'},
+        {title: 'PROYECTOS DE MEJORA', image: 'proyectos-mejora.png', to: 'mainModuloProyectos'},
         {title: 'HES TRAINING', image: 'blank.png', to: 'hes_training'}
       ]
     }
