@@ -9,36 +9,19 @@
                 <div class="container menu_div">
                     <div class="row">
                         <div class="col-6 button_div">
-                            <Button text="Inicio" color="#172646" width="100%"/>
-                        </div>
-                        <div class="col-6 button_div">
-                            <Button text="Indicadores" color="#172646" width="100%"/>
-                        </div>                
-                    </div>
-
-                    <div class="row">
+                            <Button link="/" text="Inicio" color="#172646" width="100%"/>
+                        </div>  
                         <div class="col-6 button_div">
                             <Button link="/auditorias" text="Auditorías" color="#172646" width="100%"/>
-                        </div>   
-                        <div class="col-6 button_div">
-                            <Button text="Calificaciones" color="#172646" width="100%"/>
-                        </div>   
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 button_div">
-                            <Button text="Auditores" color="#172646" width="100%"/>
-                        </div>   
-                        <div class="col-6 button_div">
-                            <Button text="Kaizen 6S" color="#172646" width="100%"/>
-                        </div>   
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 button_div">
-                            <Button text="Reconocimientos" color="#172646" width="50%"/>
-                        </div>     
+                            <Button text="Auditores" color="#172646" width="50%"/>
+                        </div>   
                     </div>
+
                 </div>
             </div>
         </div>            

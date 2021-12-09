@@ -11985,11 +11985,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LEMM\\diseno_software\\Hutchinson\\AuthApiExample\\AuthApiExample\\AuthApiExample.csproj",
+      "projectUniqueName": "D:\\LEMM\\diseno_software\\6S\\sistema6s_backend\\AuthApiExample\\AuthApiExample.csproj",
       "projectName": "AuthApiExample",
-      "projectPath": "D:\\LEMM\\diseno_software\\Hutchinson\\AuthApiExample\\AuthApiExample\\AuthApiExample.csproj",
+      "projectPath": "D:\\LEMM\\diseno_software\\6S\\sistema6s_backend\\AuthApiExample\\AuthApiExample.csproj",
       "packagesPath": "C:\\Users\\luism\\.nuget\\packages\\",
-      "outputPath": "D:\\LEMM\\diseno_software\\Hutchinson\\AuthApiExample\\AuthApiExample\\obj\\",
+      "outputPath": "D:\\LEMM\\diseno_software\\6S\\sistema6s_backend\\AuthApiExample\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\luism\\AppData\\Roaming\\NuGet\\NuGet.Config",
