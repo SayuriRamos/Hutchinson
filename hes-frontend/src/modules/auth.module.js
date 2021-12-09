@@ -15,7 +15,8 @@ export const auth = {
         },
         auth_logout(state) {
             state.profile = '';
-            state.token = '';      
+            state.token = '';  
+            sessionStorage.clear();    
         }
     },
     actions: {

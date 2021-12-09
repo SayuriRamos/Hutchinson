@@ -11,26 +11,17 @@
         fixed
         temporary
         :style="{ top: $vuetify.application.top + 'px', zIndex: 6 }"
-        light        
+        light
       >
         <v-list nav dense>
           <v-list-item-group v-model="group">
-            <v-list-item @click="navigate('Home')">
-              <v-list-item-title >Inicio</v-list-item-title>
+            <v-list-item
+              v-for="(module, index) in modules"
+              :key="index"
+              @click="navigate(module.to)"
+            >
+              <v-list-item-title>{{ module.title }}</v-list-item-title>
             </v-list-item>
-
-            <v-list-item @click="navigate('ideas-mejora')">
-              <v-list-item-title >Indicadores</v-list-item-title>
-            </v-list-item>
-
-            <v-list-group :value="true">
-              <template v-slot:activator>
-                <v-list-item-title>Dashboard</v-list-item-title>
-              </template>
-              <v-list-item v-for="(module, index) in modules" :key="index" @click="navigate(module.to)">
-                <v-list-item-title  >{{module.title}}</v-list-item-title>
-              </v-list-item>
-            </v-list-group>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
@@ -100,14 +91,15 @@ export default {
       loginDialog: false,
       drawer: false,
       group: null,
-      modules:[
-        {title: 'Propuestas de mejora', to:'ideas-mejora'},
-        {title: 'Control EEP', to:'ideas-mejora'},
-        {title: 'Administración SSMA', to:'ideas-mejora'}
-      ]
+      modules: [
+        { title: "Inicio", to: "Home" },
+        { title: "Indicadores", to: "ideas-mejora" },
+        { title: "Propuestas de mejora", to: "ideas-mejora" },
+        { title: "Control EEP", to: "ideas-mejora" },
+        { title: "Administración SSMA", to: "ideas-mejora" },
+      ],
     };
   },
-  mounted: function () {},
   watch: {
     group() {
       this.drawer = false;
@@ -138,10 +130,11 @@ export default {
   },
 
   computed: {
-    profile() {
+   profile() {
       return this.$store.state.auth.profile;
     },
   },
+
 };
 </script>
 
