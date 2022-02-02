@@ -1,4 +1,4 @@
-# HESIdeasDeMejora
+# HESIdeasDeMejora built in vue
 
 ## Project setup
 ```

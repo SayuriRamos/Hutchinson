@@ -12,6 +12,7 @@ using Models;
 
 namespace apiHes.Controllers
 {
+	//Api routes
     [Route("api/[controller]")]
     [ApiController]
     public class DataController : ControllerBase
